@@ -1,0 +1,27 @@
+Sat Jun 17 08:36:57 2023
+WARNING: mju_openResource: unknown file 'geom.xml'
+
+Sat Jun 17 08:49:44 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 2.4000.
+
+Sat Jun 17 08:50:55 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 3. The simulation is unstable. Time = 3.2450.
+
+Mon Jun 19 04:11:43 2023
+ERROR: m->nbody changed
+
+Mon Jun 19 04:18:38 2023
+ERROR: m->nbody changed
+
+Mon Jun 19 04:20:10 2023
+ERROR: m->nbody changed
+
+Tue Aug 29 15:37:46 2023
+WARNING: mju_openResource: unknown file 'C:\Users\gabin\Desktop\work\programmation\pendulum\geom.xml'
+
+Tue Aug 29 15:38:02 2023
+WARNING: mju_openResource: unknown file 'C:\Users\gabin\Desktop\programmation\pendulum\geom.xml'
+
+Tue Aug 29 16:13:21 2023
+WARNING: mju_openResource: unknown file 'C:\Users\gabin\Desktop\work\programmation\pendulum\geom.xml'
+

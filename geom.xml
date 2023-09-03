@@ -1,0 +1,43 @@
+<mujoco>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+     rgb2=".2 .3 .4" width="300" height="300"/>
+    <material name="grid" texture="grid" texrepeat="8 8" reflectance=".2"/>
+  </asset>
+
+  <option timestep=".01" integrator="RK4">
+    <flag energy="enable" contact="disable"/>
+  </option>
+
+  <default>
+    <joint type="ball"/>
+    <geom type="capsule" size=".03"/>
+  </default>
+
+  <worldbody>
+    <light pos="0 -.4 1"/>
+    <camera name="fixed" pos="0 -1 0" xyaxes="1 0 0 0 0 1"/>
+    <geom name="floor" type="plane" pos="0 0 -1" size="5 5 .1" material="grid"/>
+    <body name="link_1" pos="0 0 .2">
+      <joint/>
+      <geom fromto="0 0 0 0 0 -.4" rgba="0 0.5 0.5 0.5"/>
+      <site name="IMU1" pos="0 0 -.2" size=".05" rgba="1 0 0 1"/>
+      <body name="link_2" pos="0 0 -.4">
+        <joint/>
+        <geom fromto="0 0 0 0 0 -.4" rgba="0 0.5 0.5 0.5"/>
+        <site name="IMU2" pos="0 0 -.2" size=".05" rgba="1 0 0 1"/>
+      </body>
+    </body>
+  </worldbody>
+
+    <sensor>
+    <accelerometer name="acc_1" site="IMU1"/>
+    <accelerometer name="acc_2" site="IMU2"/>
+    <gyro name="gyro_1" site="IMU1"/>
+    <gyro name="gyro_2" site="IMU2"/>
+    <magnetometer name="mag_1" site="IMU1"/>
+    <magnetometer name="mag_2" site="IMU2"/>
+  </sensor>
+
+
+</mujoco>
