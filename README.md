@@ -1,4 +1,30 @@
-# Review of state of the art relative orientation estimation methods
+# Estimation of relative orientations of two rigid bodies with mechanical connection using MIMUs measurements
+
+Given two tigid bodies $(S_1)$ and $(S_2)$ connected with a spherical joint, the aim of this project is to estimate the relative orientation of the two bodies using MIMUs measurements. Let us introduce the main notations.
+
+| symbol | meaning |
+| --- | --- |
+| $q_t$ | quaternion representing the orientation of $(S_2)$ with respect to $(S_1)$ at time $t$ |
+|$\hat{.}$| mean of a variable |
+| $a_{i}^{A}$ | acceleration of the center of the joint computed from IMU $i$ |
+| $\omega$ | rotation velocity of the joint |
+| $m_i$ | measurement from magnetometer $i$ |
+| $x$ | state mean |
+| $P$ | state covariance |
+
+
+## MEKF
+
+The state $x \in \mathbb{R}^6$ comprises the quaternion deviation linearized around the quaternion $q_t$ and the bias on the measurement of the joint velocity.
+
+$$
+q_t = 
+\begin{bmatrix} \cos \| \eta_t \|_2 \\ \frac{\eta_t}{\|\eta_t \|} \sin \| \eta_t \|_2  \end{bmatrix} \odot
+\hat{q}_t
+$$
+
+
+## Review of state of the art relative orientation estimation methods
 
 | Title | Date | Observer | Mags | Geom | Comments |
 |---|---| --- | --- | --- | --- |

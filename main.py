@@ -2,10 +2,11 @@ import numpy as np
 from matplotlib import pyplot as plt
 from simulation import Simulation
 from UKF_3DOFs_orientation import UKF
+from mag_free_MEKF import MEKF
 
 #_____________________________HYPERPARAMETERS________________________________________
 
-xml_path = 'C:\\Users\\gabin\\Desktop\\programation\\pendulum\\geom.xml'
+xml_path = 'geom.xml'
 mean_accelerometer = np.zeros(3)
 mean_gyrometer = np.zeros(3)
 mean_magnetometer = np.zeros(3)
@@ -40,18 +41,32 @@ R[6:9,6:9] = covariance_accelerometer
 R[9:,9:] = covariance_magnetometer
 b = bias_gyrometer_2 - bias_gyrometer_1
 observer = UKF(7,b,P,Q,R)
+P = 1e-14 * np.eye(6)
+Q = 1e-5 * np.eye(6)
+R = 1e-2 * np.eye(3)
+mag_free_observer = MEKF(np.array([1,0,0,0]),np.array([1,0,0,0]),np.array([0,0,0,0,0,0]),P,Q,R)
 
 state = []
+q1 = []
+q2 = []
 
-for _ in range(2000):
+for _ in range(200):
     sim.step()
-    observer.step(sim.a1[:,0],
-                  sim.a2[:,0],
+    print(sim.data.qpos)
+    observer.step(sim.a1_corrected[:,0],
+                  sim.a2_corrected[:,0],
                   sim.g1[:,0],
                   sim.g2[:,0],
                   sim.m1[:,0],
                   sim.m2[:,0],
                   sim.dt)
+    mag_free_observer.step(sim.a1_corrected[:,0],
+                  sim.a2_corrected[:,0],
+                  sim.g1[:,0],
+                  sim.g2[:,0],
+                  sim.dt)
+    q1.append(mag_free_observer.q1)
+    q2.append(mag_free_observer.q2)
     state.append(observer.x)
 sim.display()
 
@@ -59,5 +74,11 @@ fig = plt.figure()
 for i in range(7):
     ax = fig.add_subplot(7,1,i+1)
     ax.plot([s[i] for s in state])
+    ax.set_ylim([-1.1,1.1])
+fig = plt.figure()
+for i in range(4):
+    ax = fig.add_subplot(4,1,i+1)
+    ax.plot([s[i] for s in q1])
+    ax.plot([s[i] for s in q2])
     ax.set_ylim([-1.1,1.1])
 plt.show()
