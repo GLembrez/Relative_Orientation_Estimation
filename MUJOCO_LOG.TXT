@@ -1,3 +1,177 @@
 Wed Sep  6 13:24:53 2023
 WARNING: mju_openResource: unknown file 'C:\Users\gabin\Desktop\programation\pendulum\geom.xml'
 
+Fri Sep 15 16:06:31 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0000.
+
+Fri Sep 15 16:07:13 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0000.
+
+Fri Sep 15 16:08:11 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0000.
+
+Fri Sep 15 16:09:10 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0000.
+
+Fri Sep 15 16:14:16 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0000.
+
+Fri Sep 15 16:14:51 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0010.
+
+Fri Sep 15 16:15:20 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0010.
+
+Fri Sep 15 16:16:59 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0090.
+
+Fri Sep 15 16:16:59 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0080.
+
+Fri Sep 15 16:17:00 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0080.
+
+Fri Sep 15 16:17:00 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 3. The simulation is unstable. Time = 0.0070.
+
+Fri Sep 15 16:17:02 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 2. The simulation is unstable. Time = 0.0070.
+
+Fri Sep 15 16:17:03 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0070.
+
+Sat Sep 16 16:04:28 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Sat Sep 16 16:04:28 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:04:29 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 4. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:04:29 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:04:29 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:04:29 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:04:30 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:04:30 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 2. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:04:30 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0400.
+
+Sat Sep 16 16:16:53 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 6.2900.
+
+Sat Sep 16 16:16:53 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0500.
+
+Sat Sep 16 16:16:53 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Sat Sep 16 16:16:54 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Sat Sep 16 16:16:54 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:26:46 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.1000.
+
+Sat Sep 16 16:26:46 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 1. The simulation is unstable. Time = 0.0800.
+
+Sat Sep 16 16:26:46 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0800.
+
+Sat Sep 16 16:26:47 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0800.
+
+Sat Sep 16 16:26:47 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:26:47 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:27:39 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 2. The simulation is unstable. Time = 0.1700.
+
+Sat Sep 16 16:27:40 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.1300.
+
+Sat Sep 16 16:27:40 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.1200.
+
+Sat Sep 16 16:27:40 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.1200.
+
+Sat Sep 16 16:31:02 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 2. The simulation is unstable. Time = 0.0900.
+
+Sat Sep 16 16:31:02 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:31:02 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 4. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:31:03 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Sat Sep 16 16:31:03 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Sat Sep 16 16:31:03 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Sat Sep 16 16:31:03 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0500.
+
+Sat Sep 16 16:31:04 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0600.
+
+Sat Sep 16 16:31:04 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0500.
+
+Sat Sep 16 16:31:04 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 2. The simulation is unstable. Time = 0.0500.
+
+Sat Sep 16 16:37:20 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.1600.
+
+Sat Sep 16 16:37:21 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 1. The simulation is unstable. Time = 0.1000.
+
+Sat Sep 16 16:37:21 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0900.
+
+Sat Sep 16 16:37:21 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0900.
+
+Sat Sep 16 16:37:22 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0800.
+
+Sat Sep 16 16:37:22 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 2. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:37:22 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0800.
+
+Sat Sep 16 16:37:22 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:37:22 2023
+WARNING: Nan, Inf or huge value in QVEL at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:37:23 2023
+WARNING: Nan, Inf or huge value in QPOS at DOF 0. The simulation is unstable. Time = 0.0700.
+
+Sat Sep 16 16:37:23 2023
+WARNING: Nan, Inf or huge value in QACC at DOF 2. The simulation is unstable. Time = 0.0600.
+
