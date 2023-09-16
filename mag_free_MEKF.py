@@ -57,6 +57,7 @@ class MEKF():
         H = np.block([self.quat_to_matrix(self.q1).dot(self.skew(a1)),
                       -self.quat_to_matrix(self.q2).dot(self.skew(a2))])
         S = H.dot(self.P.dot(H.T)) + self.R
+        print(S)
         K = self.P.dot(H.T).dot(np.linalg.inv(S)) # K of size 6,3
         self.x = K.dot(self.quat_to_matrix(self.q2).dot(a2) - self.quat_to_matrix(self.q2).dot(a1))
 

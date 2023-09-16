@@ -5,12 +5,12 @@
     <material name="grid" texture="grid" texrepeat="8 8" reflectance=".2"/>
   </asset>
 
-  <option timestep=".001" integrator="RK4">
+  <option timestep=".01" integrator="RK4">
     <flag energy="enable" contact="disable"/>
   </option>
 
   <default>
-    <joint type="hinge" pos="0 0 0"/>
+    <joint type="hinge" pos="0 0 0" armature="0.1"/>
     <geom type="capsule" size=".03"/>
   </default>
 

@@ -13,8 +13,8 @@ class Controller():
         self.cmd_tau = np.zeros(n)
         self.t = np.zeros(n)
         self.T = np.zeros(n)  
-        self.K_p = 1e0 * np.ones((self.n,))
-        self.K_d = 1e-1 * np.ones((self.n,))
+        self.K_p = 1e2 * np.ones((self.n,))
+        self.K_d = 1e1 * np.ones((self.n,))
         self.dt = dt
 
         self.model = m
@@ -32,7 +32,7 @@ class Controller():
         self.q_s[i] = self.q_f[i]
         self.q_f[i] = np.random.uniform(self.q_lims[i,0], self.q_lims[i,1], size=1)
         self.t[i] = 0
-        self.T[i] = int(np.random.uniform(2.5*1/self.dt,10*1/self.dt,size=1))
+        self.T[i] = int(np.random.uniform(1.5*1/self.dt,3.5*1/self.dt,size=1))
 
 
     def input(self):
@@ -60,7 +60,6 @@ class Controller():
         q = self.data.qpos
         alpha = self.data.qvel
         c = self.data.qfrc_bias
-        print(c)
         q_v = (self.q_f + self.q_s)/2
         T_v = self.T/2
 
