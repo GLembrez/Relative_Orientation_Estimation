@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.spatial.transform import Rotation
 
 class MEKF():
 
@@ -13,7 +14,7 @@ class MEKF():
 
     def hamilton_product(self,q1,q2):
         q = np.zeros(4)
-        q[0] = q1[0]*q2[0] + q1[1:].dot(q2[1:])
+        q[0] = q1[0]*q2[0] - q1[1:].dot(q2[1:])
         q[1:] = q1[0]*q2[1:] + q2[0]*q1[1:] + np.cross(q1[1:],q2[1:])
         return q
 
@@ -24,13 +25,15 @@ class MEKF():
         q[1:] = x/x_n * np.sin(x_n)
         return q
 
-    def quat_to_matrix(self,q) :
+    def quat_to_matrix(self,q0) :
         """
         Conversion of the rotation represented by the quaternion q to its SO3 representation
-        """     
-        R = np.array([[q[0]**2+q[1]**2-q[2]**2-q[3]**2, 2*(q[1]*q[2]+q[0]*q[3]), 2*(q[1]*q[3]-q[0]*q[2])],
-                    [2*(q[1]*q[2]-q[0]*q[3]), q[0]**2-q[1]**2+q[2]**2-q[3]**2, 2*(q[2]*q[3]+q[0]*q[1])],
-                    [2*(q[1]*q[3]+q[0]*q[2]), 2*(q[2]*q[3]-q[0]*q[1]), q[0]**2-q[1]**2-q[2]**2+q[3]**2]])
+        """
+        q = np.array([q0[1],q0[2],q0[3],q0[0]])
+        R = Rotation.from_quat(q).as_matrix() 
+        # R = np.array([[q[0]**2+q[1]**2-q[2]**2-q[3]**2, 2*(q[1]*q[2]+q[0]*q[3]), 2*(q[1]*q[3]-q[0]*q[2])],
+        #             [2*(q[1]*q[2]-q[0]*q[3]), q[0]**2-q[1]**2+q[2]**2-q[3]**2, 2*(q[2]*q[3]+q[0]*q[1])],
+        #             [2*(q[1]*q[3]+q[0]*q[2]), 2*(q[2]*q[3]-q[0]*q[1]), q[0]**2-q[1]**2-q[2]**2+q[3]**2]])
         return R
     
     def skew(self,x):
@@ -57,17 +60,14 @@ class MEKF():
         H = np.block([self.quat_to_matrix(self.q1).dot(self.skew(a1)),
                       -self.quat_to_matrix(self.q2).dot(self.skew(a2))])
         S = H.dot(self.P.dot(H.T)) + self.R
-        print(S)
         K = self.P.dot(H.T).dot(np.linalg.inv(S)) # K of size 6,3
-        self.x = K.dot(self.quat_to_matrix(self.q2).dot(a2) - self.quat_to_matrix(self.q2).dot(a1))
+        self.x = K.dot(self.quat_to_matrix(self.q1).dot(a1) - self.quat_to_matrix(self.q2).dot(a2))
 
         # relinearization
         self.q1 = self.hamilton_product(self.q1,self.exp_q(0.5*self.x[:3]))
         self.q2 = self.hamilton_product(self.q2,self.exp_q(0.5*self.x[3:]))
-        # J1 = 1/np.linalg.norm(self.q1)**3 * np.outer(self.q1,self.q1)
-        # J2 = 1/np.linalg.norm(self.q2)**3 * np.outer(self.q2,self.q2)
-        # J = np.block([[J1,np.zeros((3,3))],[np.zeros((3,3)),J2]])
-        # self.P = J.dot(self.P - K.dot(S.dot(K))).dot(J.T)
+        self.P = self.P - K.dot(S.dot(K.T))
+
 
 
 

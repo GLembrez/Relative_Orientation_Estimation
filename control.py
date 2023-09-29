@@ -32,7 +32,7 @@ class Controller():
         self.q_s[i] = self.q_f[i]
         self.q_f[i] = np.random.uniform(self.q_lims[i,0], self.q_lims[i,1], size=1)
         self.t[i] = 0
-        self.T[i] = int(np.random.uniform(1.5*1/self.dt,3.5*1/self.dt,size=1))
+        self.T[i] = int(np.random.uniform(2.5*1/self.dt,5*1/self.dt,size=1))
 
 
     def input(self):
@@ -81,4 +81,4 @@ class Controller():
 
         # update desired torque using PD correction
         self.cmd_tau  = self.K_p * (self.q_d-q) + self.K_d * (self.alpha_d - alpha)  + c 
-        self.t += 1
+        self.t += np.ones((self.n,))

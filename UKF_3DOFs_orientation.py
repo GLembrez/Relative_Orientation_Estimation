@@ -1,5 +1,6 @@
 import numpy as np 
 from scipy.linalg import sqrtm
+from scipy.spatial.transform import Rotation
 
 class UKF():
 
@@ -129,13 +130,15 @@ class UKF():
                       [-x[1],x[0] ,0    ]])
         return S
     
-    def quat_to_matrix(self,q) :
+    def quat_to_matrix(self,q0) :
         """
         Conversion of the rotation represented by the quaternion q to its SO3 representation
-        """        
-        R = np.array([[q[0]**2+q[1]**2-q[2]**2-q[3]**2, 2*(q[1]*q[2]+q[0]*q[3]), 2*(q[1]*q[3]-q[0]*q[2])],
-                    [2*(q[1]*q[2]-q[0]*q[3]), q[0]**2-q[1]**2+q[2]**2-q[3]**2, 2*(q[2]*q[3]+q[0]*q[1])],
-                    [2*(q[1]*q[3]+q[0]*q[2]), 2*(q[2]*q[3]-q[0]*q[1]), q[0]**2-q[1]**2-q[2]**2+q[3]**2]])
+        """      
+        q = np.array([q0[1],q0[2],q0[3],q0[0]])
+        R = Rotation.from_quat(q).as_matrix()   
+        # R = np.array([[q[0]**2+q[1]**2-q[2]**2-q[3]**2, 2*(q[1]*q[2]+q[0]*q[3]), 2*(q[1]*q[3]-q[0]*q[2])],
+        #             [2*(q[1]*q[2]-q[0]*q[3]), q[0]**2-q[1]**2+q[2]**2-q[3]**2, 2*(q[2]*q[3]+q[0]*q[1])],
+        #             [2*(q[1]*q[3]+q[0]*q[2]), 2*(q[2]*q[3]-q[0]*q[1]), q[0]**2-q[1]**2-q[2]**2+q[3]**2]])
         return R
     
     def step(self,A1,A2,G1,G2,M1,M2,dt):    
@@ -169,8 +172,9 @@ class UKF():
         ### MEASUREMENT PHASE
         Y2 = self.unscented_transform(6,self.measurement, y1)
         Y2_mean = np.mean(Y2,1)
-        Py_tmp = self.compute_covariance(Y2)
-        Py = 1/(2*self.n+1) * Py_tmp + self.M.dot(self.R.dot(self.M.T))
+        Py_tmp = 1/(2*self.n+1) * self.compute_covariance(Y2)
+        self.compute_M()
+        Py =  Py_tmp + self.M.dot(self.R.dot(self.M.T))
 
         ### CORRECTION PHASE
         Pxy = np.zeros((7,6)) 
